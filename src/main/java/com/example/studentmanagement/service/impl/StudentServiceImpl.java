@@ -11,14 +11,20 @@ import org.springframework.stereotype.Service;
 public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;
-    
-     public StudentServiceImpl(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
+	
+	public StudentServiceImpl(StudentRepository studentRepository) {
+		super();
+		this.studentRepository = studentRepository;
+	}
 
     @Override
-    public List<Student> getAlStudents() {
-        
-        return studentRepository.findAll();
-    }
+	public List<Student> getAllStudents() {
+		return studentRepository.findAll();
+	}
+
+	@Override
+	public Student saveStudent(Student student) {
+		return studentRepository.save(student);
+	}
+
 }
